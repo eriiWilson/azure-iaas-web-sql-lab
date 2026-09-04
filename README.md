@@ -114,6 +114,25 @@ O diagnóstico completo está em [docs/troubleshooting.md](docs/troubleshooting.
 - convivência lado a lado de versões do .NET;
 - importância de desligar ou remover recursos de laboratório para controlar custos.
 
+## Badges do evento
+
+As badges abaixo registram etapas da **Semana #PartiuNuvem**. Elas representam participação e conclusão dos desafios propostos no evento; não são certificações profissionais da Microsoft.
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/badges/participacao.png" width="220" alt="Badge Estou Participando da Semana PartiuNuvem"></td>
+    <td align="center"><img src="assets/badges/primeiro-projeto-cloud.png" width="220" alt="Badge Primeiro Projeto de Cloud"></td>
+    <td align="center"><img src="assets/badges/modernizando-aplicacao.png" width="220" alt="Badge Modernizando sua Aplicação"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Participação</strong><br>Conclusão da primeira etapa do evento.</td>
+    <td align="center"><strong>Primeiro projeto de Cloud</strong><br>Implantação e funcionamento da aplicação web no Azure.</td>
+    <td align="center"><strong>Modernizando a aplicação</strong><br>Conclusão do desafio correspondente no evento.</td>
+  </tr>
+</table>
+
+> A atividade de migração baseada no Data Migration Assistant não foi documentada como executada, pois a ferramenta havia sido descontinuada. A limitação está registrada no escopo do laboratório.
+
 ## Escopo e limitações
 
 Este foi um laboratório educacional de curta duração. Não foram implementados balanceamento de carga, alta disponibilidade, TLS público, backup, monitoramento centralizado ou migração de banco. A etapa originalmente baseada no Data Migration Assistant não foi incluída porque a ferramenta foi descontinuada.
