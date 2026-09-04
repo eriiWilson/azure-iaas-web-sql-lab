@@ -8,24 +8,11 @@ O objetivo foi aplicar conceitos de IaaS, segmentação de rede, regras de segur
 
 ## Arquitetura
 
-```mermaid
-flowchart TB
-    Internet["Internet"] -->|HTTP 80| App["vm-app<br/>Windows Server + IIS<br/>ASP.NET Core"]
-    Admin["Acesso administrativo"] -->|RDP 3389 temporário| App
-    subgraph Azure["Microsoft Azure · Resource Group"]
-        subgraph VNet["VNet 10.0.0.0/16"]
-            subgraph AppSubnet["sub-app 10.0.1.0/24 · nsg-app"]
-                App
-            end
-            subgraph DbSubnet["sub-db 10.0.2.0/24 · nsg-db"]
-                DB["vm-db<br/>Windows Server<br/>SQL Server"]
-            end
-            App -->|TCP 1433 · rede privada| DB
-        end
-    end
-```
+![Arquitetura do laboratório Azure IaaS com aplicação web e SQL Server](docs/architecture/azure-iaas-web-sql.png)
 
-As duas subnets pertenciam à mesma VNet e utilizavam o roteamento interno do Azure. Não foi necessário criar peering entre elas.
+Diagrama criado no draw.io durante a documentação do laboratório. O arquivo-fonte editável está disponível em [docs/architecture/azure-iaas-web-sql.drawio](docs/architecture/azure-iaas-web-sql.drawio).
+
+A solução foi organizada em uma VNet `10.0.0.0/16`, com a camada de aplicação na `sub-app` (`10.0.1.0/24`) e a camada de banco de dados na `sub-db` (`10.0.2.0/24`). Cada subnet recebeu seu próprio NSG. As duas subnets pertenciam à mesma VNet e utilizavam o roteamento interno do Azure, sem necessidade de peering.
 
 ## Componentes
 
@@ -68,7 +55,7 @@ A aplicação utilizada no laboratório pertence ao projeto [raphasi/semanaparti
 
 ### Servidor de banco de dados
 
-A `vm-db` foi provisionada a partir de uma imagem do Azure Marketplace com SQL Server. O banco foi configurado no SQL Server Management Studio e acessado pela aplicação utilizando SQL Server Authentication.
+A `vm-db` foi criada como parte da infraestrutura IaaS representada no diagrama. Nela, o SQL Server e o banco da aplicação foram configurados e administrados pelo SQL Server Management Studio, com acesso da aplicação por SQL Server Authentication.
 
 A string de conexão utilizou o nome/IP privado do servidor. Credenciais foram omitidas deste repositório.
 
